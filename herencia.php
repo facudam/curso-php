@@ -1,0 +1,50 @@
+<?php
+
+class Seleccion {
+    public $id;
+    public $nombre;
+    public $edad;
+
+    public function __construct($id, $nombre, $edad)
+    {
+        $this->id = $id;
+        $this->nombre = $nombre;
+        $this->edad = $edad;
+    }
+
+    public function concentrarse() {
+        echo $this->nombre . " está en concentración";
+    }
+
+    public function viajar() {
+        echo $this->nombre . " está viajando";
+    }
+}
+class Jugador extends Seleccion{
+    // Propiedades de la clase
+    public $posicion;
+    public $numero;
+
+    // Constructor
+    public function __construct($id, $nombre, $edad, $posicion, $numero) 
+    {
+        parent::__construct($id, $nombre, $edad); // Heredamos las propiedades del padre
+        $this->posicion = $posicion;
+        $this->numero = $numero; 
+    }
+
+    // Métodos de la clase
+    public function entrenar() {
+        echo "El jugador " . $this->nombre . "  está entrenando";
+    }
+    public function jugar() {
+        echo "El jugador " . $this->nombre . "  está jugando al futbol";
+    }
+}
+
+$nuevoJugador = new Jugador(1, "Messi", 37, "Mediocampista", 10);
+?>
+
+<h1><?= $nuevoJugador->nombre ?></h1>
+<h1><?= $nuevoJugador->concentrarse() ?></h1>
+<h1><?= $nuevoJugador->jugar() ?></h1>
